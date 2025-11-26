@@ -2,18 +2,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Links, Meta, Scripts, ScrollRestoration } from 'react-router'
 import Navbar from './nav/Navbar'
 import Footer from './Footer'
-import { useTheme } from '../context/ThemeContext'
+
 
 export default function HtmlShell({
   children,
-  title = 'React Router Template'
+  title = 'Lord of the Rings Blog'
 }) {
-  const { theme } = useTheme()
 
   return (
     <html
       lang='en'
-      data-bs-theme={theme}
+      data-bs-theme='dark'
     >
       <head>
         <meta charSet='UTF-8' />
@@ -23,7 +22,7 @@ export default function HtmlShell({
         />
         <meta
           name='description'
-          content='React Router Template with Bootstrap'
+          content='Lord of the Rings Blog'
         />
         <title>{title}</title>
         <Meta />

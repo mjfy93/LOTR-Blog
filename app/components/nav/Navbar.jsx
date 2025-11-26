@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useTheme } from '../../context/ThemeContext'
+
 
 const navLinks = [
   { to: '/', label: 'Home', icon: 'home', end: true },
@@ -9,15 +9,16 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme()
+  
 
   return (
-    <nav className={`navbar navbar-expand bg-${theme}`}>
+    <nav className={`navbar navbar-expand bg-dark`}>
       <div className='container-fluid'>
         <NavLink
           to='/'
           end={navLinks[0].end}
           className='nav-brand'
+          style={{ color: '#eedda0'}}
         >
           <FontAwesomeIcon
             icon={navLinks[0].icon}
@@ -37,8 +38,8 @@ export default function Navbar() {
                     to={to}
                     end={end}
                     className={({ isActive }) =>
-                      `nav-link${isActive ? ' active' : ''}`
-                    }
+                      `nav-link${isActive ? ' active' : ''}`}
+                    style={{ color: '#eedda0' }}
                   >
                     <FontAwesomeIcon
                       icon={icon}
@@ -49,17 +50,7 @@ export default function Navbar() {
                 </li>
               )
           )}
-          <li className='nav-item'>
-            <button
-              className={`btn btn-outline-${
-                theme === 'dark' ? 'light' : 'dark'
-              } border-0 p-1 mx-2`}
-              onClick={toggleTheme}
-              aria-label='Toggle theme'
-            >
-              <FontAwesomeIcon icon='lightbulb' />
-            </button>
-          </li>
+          
         </ul>
       </div>
     </nav>
