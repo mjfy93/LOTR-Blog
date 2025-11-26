@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../utils/api"
 
 export async function loader() {
   const response = await fetch(`${API_BASE_URL}/book`, {
-    headers: { 'Authorization': 'Bearer LlSu4KLZ6OcHroMGGgZt' }
+    
   })
 
 
