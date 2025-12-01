@@ -2,9 +2,7 @@ import { fetchFromLOTRAPI } from '../utils/api';
 import { useState, useEffect } from 'react';
 
 export default function Index() {
-  console.log('DEV MODE:', import.meta.env.DEV);
-  console.log('TOKEN EXISTS:', !!import.meta.env.VITE_LOTR_API_TOKEN);
-  console.log('TOKEN VALUE:', import.meta.env.VITE_LOTR_API_TOKEN?.substring(0, 10) + '...');
+
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
