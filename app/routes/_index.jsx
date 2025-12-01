@@ -1,35 +1,38 @@
-import { useLoaderData } from "react-router"
-import { API_BASE_URL } from "../utils/api"
+import { fetchFromLOTRAPI } from '../utils/api';
+import { useState, useEffect } from 'react';
 
-export async function loader() {
-  const response = await fetch(`${API_BASE_URL}/book`, {
-    headers: { 'Authorization': 'Bearer LlSu4KLZ6OcHroMGGgZt' }
-  })
+export default function Index() {
+  console.log('DEV MODE:', import.meta.env.DEV);
+  console.log('TOKEN EXISTS:', !!import.meta.env.VITE_LOTR_API_TOKEN);
+  console.log('TOKEN VALUE:', import.meta.env.VITE_LOTR_API_TOKEN?.substring(0, 10) + '...');
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    async function loadBooks() {
+      try {
+        const data = await fetchFromLOTRAPI('book');
+        console.log('Books data:', data);
+        setBooks(data.docs);
+      } catch (error) {
+        console.error('Failed to load books:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadBooks();
+  }, []);
 
-
-  return response.json();
-}
-
-
-export default function Home() {
-  const data = useLoaderData();
-  const booksInfo = Object.entries(data.docs)
-  console.log(booksInfo);
-
+  if (loading) return <div>Loading LOTR data...</div>;
 
   return (
-    <div className="homeContainer d-flex align-items-center my-5">
-      {booksInfo.map((item, index) => (
-        <div className="card bg-transparent" key={index} >
-          <img src="..." className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">{item[1].name}</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-            <a href="#" className="btn btn-outline-success">Go somewhere</a>
-          </div>
+    <div>
+      <h1>Lord of the Rings Books</h1>
+      {books.map(book => (
+        <div key={book._id}>
+          <h2>{book.name}</h2>
         </div>
       ))}
     </div>
-  )
+  );
 }
