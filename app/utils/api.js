@@ -14,10 +14,7 @@ const DEV_TOKEN = import.meta.env.VITE_LOTR_API_TOKEN; // Add to .env.local as V
  */
 export async function fetchFromLOTRAPI(endpoint) {
     try {
-        console.log('=== fetchFromLOTRAPI Debug ===');
-        console.log('DEV_MODE:', DEV_MODE);
-        console.log('DEV_TOKEN exists:', !!DEV_TOKEN);
-        console.log('Condition (!DEV_MODE || !DEV_TOKEN):', (!DEV_MODE || !DEV_TOKEN));
+
         // In production or if dev token not set, use serverless function
         if (!DEV_MODE || !DEV_TOKEN) {
             console.log('Using serverless function for:', endpoint);
