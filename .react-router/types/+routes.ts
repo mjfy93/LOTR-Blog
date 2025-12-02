@@ -14,6 +14,9 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/api/lotr": {
+    params: {};
+  };
   "/contact": {
     params: {};
   };
@@ -25,7 +28,11 @@ type Pages = {
 type RouteFiles = {
   "root.jsx": {
     id: "root";
-    page: "/" | "/contact" | "/about";
+    page: "/" | "/api/lotr" | "/contact" | "/about";
+  };
+  "routes/api.lotr.tsx": {
+    id: "routes/api.lotr";
+    page: "/api/lotr";
   };
   "routes/contact.jsx": {
     id: "routes/contact";
@@ -43,6 +50,7 @@ type RouteFiles = {
 
 type RouteModules = {
   "root": typeof import("./app/root.jsx");
+  "routes/api.lotr": typeof import("./app/routes/api.lotr.tsx");
   "routes/contact": typeof import("./app/routes/contact.jsx");
   "routes/_index": typeof import("./app/routes/_index.jsx");
   "routes/about": typeof import("./app/routes/about.jsx");

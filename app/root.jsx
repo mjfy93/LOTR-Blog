@@ -30,7 +30,7 @@ export default function App() {
                 raysColor="#ffe69c"
                 raysSpeed={1.5}
                 lightSpread={0.8}
-                rayLength={1.2}
+                rayLength={2}
                 followMouse={true}
                 mouseInfluence={0.1}
                 noiseAmount={0.1}
