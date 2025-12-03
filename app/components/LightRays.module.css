@@ -1,4 +1,4 @@
-.light-rays-container {
+.lightRaysContainer {
   position: absolute !important;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.light-rays-container canvas {
+.lightRaysContainer canvas {
   position: absolute;
   top: 0;
   left: 0;

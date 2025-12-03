@@ -2,19 +2,22 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 // Import icons you want to use globally
-import { 
+import {
   faLightbulb,
   faHome,
   faUser,
-  faEnvelope
+  faEnvelope,
+
 } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 // Add them to the library
 library.add(
   faLightbulb,
   faHome,
   faUser,
-  faEnvelope
+  faEnvelope,
+  faGithub
 )
 
 // Export for potential direct use if needed
@@ -22,7 +25,8 @@ export {
   faLightbulb,
   faHome,
   faUser,
-  faEnvelope
+  faEnvelope,
+  faGithub
 }
 
 // When using the icon, just use the name in lowercase, no 'fa'

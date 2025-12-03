@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Triangle, Mesh } from 'ogl';
-
+import styles from './LightRays.module.css';
 
 const DEFAULT_COLOR = '#ffffffff';
 
@@ -393,7 +393,7 @@ void main() {
         }
     }, [followMouse]);
 
-    return <div ref={containerRef} className={`light-rays-container ${className}`.trim()} />;
+    return <div ref={containerRef} className={`${styles.lightRaysContainer} ${className}`.trim()} />;
 };
 
 export default LightRays;

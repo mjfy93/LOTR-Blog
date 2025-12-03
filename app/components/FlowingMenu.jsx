@@ -1,12 +1,11 @@
 import React from 'react';
 import { gsap } from 'gsap';
-
-
+import styles from './FlowingMenu.module.css';
 
 function FlowingMenu({ items = [] }) {
     return (
-        <div className="menu-wrap">
-            <nav className="menu">
+        <div className={styles.menuWrap}>
+            <nav className={styles.menu}>
                 {items.map((item, idx) => (
                     <MenuItem key={idx} {...item} />
                 ))}
@@ -19,7 +18,6 @@ function MenuItem({ link, text, image }) {
     const itemRef = React.useRef(null);
     const marqueeRef = React.useRef(null);
     const marqueeInnerRef = React.useRef(null);
-
     const animationDefaults = { duration: 0.6, ease: 'expo' };
 
     const findClosestEdge = (mouseX, mouseY, width, height) => {
@@ -35,21 +33,12 @@ function MenuItem({ link, text, image }) {
     };
 
     const handleMouseEnter = ev => {
-
-        if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) {
-            console.log('Missing refs!');
-            return;
-        }
-
-        // Add this debug line to force a visible change
-        marqueeRef.current.style.backgroundColor = '#ffe69c';
+        if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
 
         const rect = itemRef.current.getBoundingClientRect();
         const x = ev.clientX - rect.left;
         const y = ev.clientY - rect.top;
         const edge = findClosestEdge(x, y, rect.width, rect.height);
-
-
 
         gsap
             .timeline({ defaults: animationDefaults })
@@ -60,6 +49,7 @@ function MenuItem({ link, text, image }) {
 
     const handleMouseLeave = ev => {
         if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
+
         const rect = itemRef.current.getBoundingClientRect();
         const x = ev.clientX - rect.left;
         const y = ev.clientY - rect.top;
@@ -74,18 +64,23 @@ function MenuItem({ link, text, image }) {
     const repeatedMarqueeContent = Array.from({ length: 4 }).map((_, idx) => (
         <React.Fragment key={idx}>
             <span>{text}</span>
-            <div className="marquee__img" style={{ backgroundImage: `url(${image})` }} />
+            <div className={styles.marqueeImg} style={{ backgroundImage: `url(${image})` }} />
         </React.Fragment>
     ));
 
     return (
-        <div className="menu__item" ref={itemRef}>
-            <a className="menu__item-link" href={link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className={styles.menuItem} ref={itemRef}>
+            <a
+                className={styles.menuItemLink}
+                href={link}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
                 {text}
             </a>
-            <div className="marquee" ref={marqueeRef}>
-                <div className="marquee__inner-wrap" ref={marqueeInnerRef}>
-                    <div className="marquee__inner" aria-hidden="true">
+            <div className={styles.marquee} ref={marqueeRef}>
+                <div className={styles.marqueeInnerWrap} ref={marqueeInnerRef}>
+                    <div className={styles.marqueeInner} aria-hidden="true">
                         {repeatedMarqueeContent}
                     </div>
                 </div>

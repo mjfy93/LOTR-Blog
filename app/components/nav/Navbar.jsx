@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const navLinks = [
   { to: '/', label: 'Home', icon: 'home', end: true },
-  { to: '/about', label: 'About', icon: 'user' },
+  { to: '/about', label: 'About This Project', icon: ['fab', 'github'] },
   { to: '/contact', label: 'Contact', icon: 'envelope' }
 ]
 
 export default function Navbar() {
-  
+
 
   return (
     <nav className={`navbar navbar-expand bg-dark`}>
@@ -18,7 +18,7 @@ export default function Navbar() {
           to='/'
           end={navLinks[0].end}
           className='nav-brand'
-          style={{ color: '#eedda0'}}
+          style={{ color: '#eedda0' }}
         >
           <FontAwesomeIcon
             icon={navLinks[0].icon}
@@ -50,7 +50,7 @@ export default function Navbar() {
                 </li>
               )
           )}
-          
+
         </ul>
       </div>
     </nav>
