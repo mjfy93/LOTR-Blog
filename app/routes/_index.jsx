@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div>
-      <div style={{ height: '600px', position: 'relative', border: 'solid 3px black' }}>
+      <div style={{ height: '600px', position: 'relative' }}>
 
         <ClientOnly>
           {() => <FlowingMenu items={menuItems} />}
