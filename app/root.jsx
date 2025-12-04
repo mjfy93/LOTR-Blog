@@ -4,7 +4,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import Navbar from './components/nav/Navbar';
 import Footer from './components/Footer';
-import LightRays from './components/LightRays';
+import LightRays from './components/LightRays/LightRays';
 import ClientOnly from './components/ClientOnly';
 
 export function Layout({ children }) {
@@ -15,7 +15,7 @@ export function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Lord of the Rings Blog" />
         <title>Lord of the Rings Blog</title>
-        {/* ✅ Load Bootstrap from CDN instead */}
+
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -40,7 +40,7 @@ export function Layout({ children }) {
   );
 }
 
-// ✅ Root component - your app structure
+
 export default function Root() {
   return (
     <ThemeProvider>

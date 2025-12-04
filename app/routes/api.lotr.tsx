@@ -1,5 +1,4 @@
-// app/routes/api.lotr.tsx
-// React Router resource route that acts as an API endpoint
+
 
 export async function loader({ request }) {
   const url = new URL(request.url);
