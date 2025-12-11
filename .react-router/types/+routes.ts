@@ -19,6 +19,9 @@ type Pages = {
       "collection": string;
     };
   };
+  "/movies": {
+    params: {};
+  };
   "/books": {
     params: {};
   };
@@ -36,11 +39,15 @@ type Pages = {
 type RouteFiles = {
   "root.jsx": {
     id: "root";
-    page: "/" | "/books/:collection" | "/books" | "/api/lotr" | "/contact" | "/about";
+    page: "/" | "/books/:collection" | "/movies" | "/books" | "/api/lotr" | "/contact" | "/about";
   };
   "routes/books.$collection.jsx": {
     id: "routes/books.$collection";
     page: "/books/:collection";
+  };
+  "routes/movies._index.jsx": {
+    id: "routes/movies._index";
+    page: "/movies";
   };
   "routes/books._index.jsx": {
     id: "routes/books._index";
@@ -67,6 +74,7 @@ type RouteFiles = {
 type RouteModules = {
   "root": typeof import("./app/root.jsx");
   "routes/books.$collection": typeof import("./app/routes/books.$collection.jsx");
+  "routes/movies._index": typeof import("./app/routes/movies._index.jsx");
   "routes/books._index": typeof import("./app/routes/books._index.jsx");
   "routes/api.lotr": typeof import("./app/routes/api.lotr.tsx");
   "routes/contact": typeof import("./app/routes/contact.jsx");

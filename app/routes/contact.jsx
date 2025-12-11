@@ -14,11 +14,11 @@ export default function Contact() {
   };
 
   const contactInfo = {
-    name: 'María José',
+    name: 'María José Ferro Yepes',
     title: 'Full-Stack Developer Jr.',
-    email: 'maria.jose.ferro@hotmail.com',
-    linkedin: 'www.linkedin.com/in/mariajoseferroyepes',
-    github: 'https://github.com/mjfy93',
+    email: 'maria.jose.ferro@hotmail.com ',
+    linkedin: 'www.linkedin.com/in/mariajoseferroyepes ',
+    github: 'https://github.com/mjfy93 ',
     location: 'Bogotá, Colombia',
   };
 
@@ -75,7 +75,7 @@ export default function Contact() {
                         className="text-decoration-none"
                         style={{ color: '#fff' }}
                       >
-                        {contactInfo.email}
+                        {contactInfo.email}<FontAwesomeIcon icon='link' size="xs" />
                       </a>
                     </div>
                   </div>
@@ -104,7 +104,7 @@ export default function Contact() {
                         className="text-decoration-none"
                         style={{ color: '#fff' }}
                       >
-                        View Profile
+                        {contactInfo.linkedin} <FontAwesomeIcon icon='link' size="xs" />
                       </a>
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                         className="text-decoration-none"
                         style={{ color: '#fff' }}
                       >
-                        @mjfy93
+                        {contactInfo.github}<FontAwesomeIcon icon='link' size="xs" />
                       </a>
                     </div>
                   </div>

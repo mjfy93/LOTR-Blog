@@ -1,3 +1,20 @@
+export const bookMetadata = {
+    'The Fellowship Of The Ring': {
+        author: 'J.R.R. Tolkien',
+        publishedYear: 1954,
+        description: 'The first volume of The Lord of the Rings, following Frodo Baggins as he begins his quest to destroy the One Ring.'
+    },
+    'The Two Towers': {
+        author: 'J.R.R. Tolkien',
+        publishedYear: 1954,
+        description: 'The second volume chronicles the separate journeys of the Fellowship members, following Frodo and Sam toward Mordor while the others pursue the captured hobbits.'
+    },
+    'The Return Of The King': {
+        author: 'J.R.R. Tolkien',
+        publishedYear: 1955,
+        description: 'The final volume depicts the War of the Ring, the destruction of the One Ring, and the crowning of Aragorn as King of Gondor, bringing the quest to its epic conclusion.'
+    }
+};
 export const collections = [
     {
         id: 'original-trilogy',
@@ -200,4 +217,13 @@ export function getAllCollections() {
         image,
         description
     }));
+}
+export function enrichBook(book) {
+    const metadata = bookMetadata[book.name];
+
+    if (metadata) {
+        return { ...book, ...metadata };  // Merge API data + our data
+    }
+
+    return book;
 }

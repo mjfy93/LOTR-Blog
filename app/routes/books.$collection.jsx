@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router';
 import { useState, useEffect } from 'react';
-import { getCollectionBySlug } from '../data/booksData';
+import { getCollectionBySlug, enrichBook } from '../data/booksData';
 import { fetchFromLOTRAPI } from '../utils/api';
 import { getBookCoverPath, handleImageError } from '../utils/imageHelpers';
 
@@ -39,7 +39,8 @@ export default function Collection() {
 
                 if (collection.slug === 'original-trilogy') {
                     const data = await fetchFromLOTRAPI('book');
-                    setBooks(data.docs);
+                    const enrichedBooks = data.docs.map(book => enrichBook(book));
+                    setBooks(enrichedBooks);
                 } else {
 
                     setBooks(collection.books);
@@ -95,7 +96,7 @@ export default function Collection() {
 
 
     return (
-        <div className="container py-4">
+        <div className="container py-5">
 
             <nav aria-label="breadcrumb" className="mb-4">
                 <ol className="breadcrumb">

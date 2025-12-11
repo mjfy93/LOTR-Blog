@@ -7,9 +7,10 @@ import {
   faHome,
   faUser,
   faEnvelope,
+  faLink
 
 } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 // Add them to the library
 library.add(
@@ -17,7 +18,9 @@ library.add(
   faHome,
   faUser,
   faEnvelope,
-  faGithub
+  faGithub,
+  faLinkedin,
+  faLink
 )
 
 // Export for potential direct use if needed
@@ -26,7 +29,9 @@ export {
   faHome,
   faUser,
   faEnvelope,
-  faGithub
+  faGithub,
+  faLinkedin,
+  faLink
 }
 
 // When using the icon, just use the name in lowercase, no 'fa'

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const navLinks = [
   { to: '/', label: 'Home', icon: 'home', end: true },
   { to: '/about', label: 'About This Project', icon: ['fab', 'github'] },
-  { to: '/contact', label: 'Contact Me', icon: 'envelope' }
+  { to: '/contact', label: 'About Me', icon: 'envelope' }
 ]
 
 export default function Navbar() {
