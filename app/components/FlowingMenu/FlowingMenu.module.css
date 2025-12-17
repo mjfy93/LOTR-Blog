@@ -17,7 +17,11 @@
   position: relative;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 -1px #eedda0;
+  border-top: 1px solid #eedda0;
+}
+
+.menuItem:first-child {
+  border-top: none; /* 👈 Remove border from first item (BOOKS) */
 }
 
 .menuItemLink {
