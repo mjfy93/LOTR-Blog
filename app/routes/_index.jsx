@@ -4,8 +4,8 @@ import ClientOnly from '../components/ClientOnly';
 
 const menuItems = [
   { link: '/books', text: 'Books', image: '/images/menu/inscription.png' },
-  { link: '/movies', text: 'Movies & Other Adaptations', image: '/images/menu/inscription.png' },
-  { link: '#', text: 'Characters', image: '/images/menu/fellowship.png' },
+  { link: '/movies', text: 'Movies & Other Adaptations', image: '/images/menu/ring.png' },
+  { link: '/characters', text: 'Characters', image: '/images/menu/fellowship.png' },
   { link: '#', text: 'Quotes', image: '/images/menu/quote.png' },
   { link: '#', text: 'About J.R.R. Tolkien', image: '/images/menu/tolkien.png' },
 

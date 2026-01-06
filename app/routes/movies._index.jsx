@@ -26,10 +26,9 @@ export default function Movies() {
         accent: '#eedda0',
     };
 
-    // Load movies for a specific collection
+
     const loadMoviesForCollection = async (slug) => {
-        // If already loaded, don't fetch again
-        if (moviesData[slug]) return;
+
 
         setLoading(prev => ({ ...prev, [slug]: true }));
 
@@ -37,14 +36,19 @@ export default function Movies() {
             const collection = getCollectionBySlug(slug);
 
             if (slug === 'lotr-trilogy' || slug === 'hobbit-trilogy') {
-                // Fetch from API, filter, and enrich
+
                 const data = await fetchFromLOTRAPI('movie');
                 const filteredMovies = filterMoviesByCollection(data.docs, slug);
                 const enrichedMovies = filteredMovies.map(movie => enrichMovie(movie));
-                setMoviesData(prev => ({ ...prev, [slug]: enrichedMovies }));
+                const sortedMovies = enrichedMovies.sort((a, b) => a.releaseYear - b.releaseYear);
+                setMoviesData(prev => ({ ...prev, [slug]: sortedMovies }));
             } else {
-                // Use manual data (Rings of Power, International Adaptations)
-                setMoviesData(prev => ({ ...prev, [slug]: collection.movies }));
+
+                const movies = collection.movies;
+
+
+                const sortedMovies = movies.sort((a, b) => a.releaseYear - b.releaseYear);
+                setMoviesData(prev => ({ ...prev, [slug]: sortedMovies }));
             }
         } catch (error) {
             console.error(`Failed to load ${slug}:`, error);
