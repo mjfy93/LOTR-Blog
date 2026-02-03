@@ -39,10 +39,6 @@
   font-size: 4vh;
 }
 
-.menuItemLink:hover {
-  color: #060010;
-}
-
 .menuItemLink:focus:not(:focus-visible) {
   color: #eedda0;
 }
@@ -98,8 +94,14 @@
   border: solid 3px black;
 }
 
-.menuItemLink:hover + .marquee {
-  transform: translate3d(0, 0%, 0);
+@media (hover: hover) {
+  .menuItemLink:hover {
+    color: #060010;
+  }
+
+  .menuItemLink:hover + .marquee {
+    transform: translate3d(0, 0%, 0);
+  }
 }
 
 @keyframes marquee {

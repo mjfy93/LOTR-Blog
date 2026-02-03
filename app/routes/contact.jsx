@@ -25,7 +25,7 @@ export default function Contact() {
   return (
     <div className="container py-5">
       <div className="row justify-content-center">
-        <div className="col-lg-8">
+        <div className="col-md-10 col-lg-8">
 
           <div className="text-center mb-5">
             <h1 className="display-4 mb-3" style={{ color: colors.accent }}>
@@ -72,7 +72,7 @@ export default function Contact() {
                       <h3 className="h6 mb-1" style={{ color: colors.accent }}>Email</h3>
                       <a
                         href={`mailto:${contactInfo.email}`}
-                        className="text-decoration-none"
+                        className="text-decoration-none contact-link"
                         style={{ color: '#fff' }}
                       >
                         {contactInfo.email}<FontAwesomeIcon icon='link' size="xs" />
@@ -101,7 +101,7 @@ export default function Contact() {
                         href={contactInfo.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-decoration-none"
+                        className="text-decoration-none contact-link"
                         style={{ color: '#fff' }}
                       >
                         {contactInfo.linkedin} <FontAwesomeIcon icon='link' size="xs" />
@@ -129,7 +129,7 @@ export default function Contact() {
                         href={contactInfo.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-decoration-none"
+                        className="text-decoration-none contact-link"
                         style={{ color: '#fff' }}
                       >
                         {contactInfo.github}<FontAwesomeIcon icon='link' size="xs" />

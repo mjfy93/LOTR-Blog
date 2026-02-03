@@ -68,13 +68,12 @@ export default function Books() {
                 Explore the complete works of Middle-earth
             </p>
 
-            <div className="d-flex align-items-start">
-                {/* Vertical Navigation Tabs - NO BOOTSTRAP JS ATTRIBUTES */}
+            <div className="d-flex align-items-start tabs-layout">
+                {/* Navigation Tabs - vertical on desktop, horizontal scroll on mobile */}
                 <div
-                    className="nav flex-column nav-pills me-4"
+                    className="nav flex-column nav-pills me-4 tab-sidebar"
                     role="tablist"
                     aria-orientation="vertical"
-                    style={{ minWidth: '250px' }}
                 >
                     {collections.map(({ slug, name }) => (
                         <button
@@ -155,7 +154,8 @@ export default function Books() {
                                                         <img
                                                             src={coverImage}
                                                             alt={`${book.name} cover`}
-                                                            className="card-img-top"
+                                                            className="card-img-top book-card-img"
+                                                            loading="lazy"
                                                             style={{
                                                                 height: '350px',
                                                                 objectFit: 'contain',

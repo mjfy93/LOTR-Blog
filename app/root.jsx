@@ -1,11 +1,13 @@
 
 import './utils/fontAwesomeLibrary';
+import './styles/responsive.css';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import Navbar from './components/nav/Navbar';
 import Footer from './components/Footer';
 import LightRays from './components/LightRays/LightRays';
 import ClientOnly from './components/ClientOnly';
+import { useIsMobile } from './hooks/useIsMobile';
 
 export function Layout({ children }) {
   return (
@@ -42,53 +44,60 @@ export function Layout({ children }) {
 
 
 export default function Root() {
+  const { isMobile, mounted } = useIsMobile();
+
   return (
     <ThemeProvider>
-      <Navbar />
-      <div style={{
-        width: '100%',
-        minHeight: '100vh',
-        position: 'relative',
-        isolation: 'isolate'
-      }}>
-        <ClientOnly fallback={
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 0
-          }} />
-        }>
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 0
-          }}>
-            <LightRays
-              raysOrigin="top-center"
-              raysColor="#ffe69c"
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={2}
-              followMouse={true}
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-            />
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Navbar />
+        <div style={{
+          flex: '1 0 auto',
+          width: '100%',
+          position: 'relative',
+          isolation: 'isolate'
+        }}>
+          {/* LightRays - only on desktop for battery/performance */}
+          {mounted && !isMobile && (
+            <ClientOnly fallback={
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0
+              }} />
+            }>
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0
+              }}>
+                <LightRays
+                  raysOrigin="top-center"
+                  raysColor="#ffe69c"
+                  raysSpeed={1.5}
+                  lightSpread={0.8}
+                  rayLength={2}
+                  followMouse={true}
+                  mouseInfluence={0.1}
+                  noiseAmount={0.1}
+                  distortion={0.05}
+                />
+              </div>
+            </ClientOnly>
+          )}
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <main className='container mt-4'>
+              <Outlet />
+            </main>
           </div>
-        </ClientOnly>
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <main className='container mt-4'>
-            <Outlet />
-          </main>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </ThemeProvider>
   );
 }

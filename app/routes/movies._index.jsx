@@ -78,13 +78,12 @@ export default function Movies() {
                 Explore adaptations of Middle-earth across film and television
             </p>
 
-            <div className="d-flex align-items-start">
-                {/* Vertical Navigation Tabs - NO BOOTSTRAP JS ATTRIBUTES */}
+            <div className="d-flex align-items-start tabs-layout">
+                {/* Navigation Tabs - vertical on desktop, horizontal scroll on mobile */}
                 <div
-                    className="nav flex-column nav-pills me-4"
+                    className="nav flex-column nav-pills me-4 tab-sidebar-movies"
                     role="tablist"
                     aria-orientation="vertical"
-                    style={{ minWidth: '280px' }}
                 >
                     {collections.map(({ slug, name }) => (
                         <button
@@ -177,7 +176,8 @@ export default function Movies() {
                                                         <img
                                                             src={posterImage}
                                                             alt={`${movie.name} poster`}
-                                                            className="card-img-top"
+                                                            className="card-img-top movie-card-img"
+                                                            loading="lazy"
                                                             style={{
                                                                 height: '400px',
                                                                 objectFit: 'cover',

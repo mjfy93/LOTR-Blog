@@ -12,12 +12,12 @@ export default function Navbar() {
 
 
   return (
-    <nav className={`navbar navbar-expand bg-dark p-1`}>
+    <nav className={`navbar navbar-expand-md bg-dark p-1`}>
       <div className='container-fluid'>
         <NavLink
           to='/'
           end={navLinks[0].end}
-          className='nav-brand'
+          className='navbar-brand'
           style={{ color: '#eedda0' }}
         >
           <FontAwesomeIcon
@@ -26,32 +26,47 @@ export default function Navbar() {
           />
           {navLinks[0].label}
         </NavLink>
-        <ul className='navbar-nav ms-auto align-items-center'>
-          {navLinks.map(
-            ({ to, label, icon, end }, i) =>
-              i > 0 && (
-                <li
-                  key={to}
-                  className='nav-item'
-                >
-                  <NavLink
-                    to={to}
-                    end={end}
-                    className={({ isActive }) =>
-                      `nav-link${isActive ? ' active' : ''}`}
-                    style={{ color: '#eedda0' }}
-                  >
-                    <FontAwesomeIcon
-                      icon={icon}
-                      className='me-1'
-                    />
-                    {label}
-                  </NavLink>
-                </li>
-              )
-          )}
 
-        </ul>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className='navbar-nav ms-auto align-items-center'>
+            {navLinks.map(
+              ({ to, label, icon, end }, i) =>
+                i > 0 && (
+                  <li
+                    key={to}
+                    className='nav-item'
+                  >
+                    <NavLink
+                      to={to}
+                      end={end}
+                      className={({ isActive }) =>
+                        `nav-link${isActive ? ' active' : ''}`}
+                      style={{ color: '#eedda0' }}
+                    >
+                      <FontAwesomeIcon
+                        icon={icon}
+                        className='me-1'
+                      />
+                      {label}
+                    </NavLink>
+                  </li>
+                )
+            )}
+
+          </ul>
+        </div>
       </div>
     </nav>
   )

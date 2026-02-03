@@ -1,0 +1,174 @@
+/* ============================================
+   LOTR Blog - Responsive Styles
+   Mobile: < 768px | Tablet: 768-991px | Desktop: 992px+
+   ============================================ */
+
+/* --- Mobile Menu Grid --- */
+.flowing-menu-mobile {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .flowing-menu-desktop {
+    display: none !important;
+  }
+  .flowing-menu-mobile {
+    display: block !important;
+  }
+}
+
+.mobile-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.mobile-menu-card {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border: 1px solid #eedda0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.mobile-menu-card:active {
+  transform: scale(0.98);
+}
+
+.mobile-menu-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.mobile-menu-card span {
+  position: relative;
+  z-index: 2;
+  color: #eedda0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.mobile-menu-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+/* --- Card Images --- */
+@media (max-width: 767.98px) {
+  .book-card-img {
+    height: 250px !important;
+    object-fit: contain !important;
+  }
+  .movie-card-img {
+    height: 280px !important;
+    object-fit: cover !important;
+  }
+}
+
+/* --- Tab Navigation - Horizontal Scroll on Mobile --- */
+.tab-sidebar {
+  min-width: 250px;
+}
+
+.tab-sidebar-movies {
+  min-width: 280px;
+}
+
+@media (max-width: 767.98px) {
+  .tab-sidebar,
+  .tab-sidebar-movies {
+    flex-direction: row !important;
+    overflow-x: auto;
+    min-width: unset !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-sidebar::-webkit-scrollbar,
+  .tab-sidebar-movies::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-sidebar .nav-link,
+  .tab-sidebar-movies .nav-link {
+    white-space: nowrap;
+    min-width: auto !important;
+    margin-bottom: 0 !important;
+    margin-right: 0.5rem;
+  }
+
+  /* Stack layout vertically on mobile */
+  .tabs-layout {
+    flex-direction: column !important;
+  }
+}
+
+/* --- Alphabet Buttons --- */
+@media (max-width: 767.98px) {
+  .alpha-btn {
+    min-width: 40px !important;
+    min-height: 44px !important;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Touch Targets --- */
+@media (max-width: 767.98px) {
+  .navbar-nav .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* --- About Page Architecture Diagram --- */
+@media (max-width: 767.98px) {
+  .architecture-pre {
+    font-size: 0.55rem !important;
+    overflow-x: auto;
+  }
+}
+
+/* --- Contact Page URL Wrapping --- */
+@media (max-width: 767.98px) {
+  .contact-link {
+    word-break: break-all;
+  }
+}
+
+/* --- Footer --- */
+.site-footer {
+  flex-shrink: 0;
+}
+
+@media (max-width: 767.98px) {
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 0.75rem 0.5rem !important;
+  }
+}
+
+/* --- Hover-Only Effects (preserves desktop hover animations) --- */
+@media (hover: none) {
+  .menuItemLink:hover {
+    color: #eedda0 !important;
+  }
+}

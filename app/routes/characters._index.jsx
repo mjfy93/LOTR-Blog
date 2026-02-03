@@ -109,7 +109,7 @@ export default function Characters() {
                                 key={letter}
                                 onClick={() => filterByLetter(letter)}
                                 disabled={!hasCharacters}
-                                className="btn"
+                                className="btn alpha-btn"
                                 style={{
                                     backgroundColor: activeLetter === letter ? colors.accent : 'transparent',
                                     color: activeLetter === letter ? '#060010' : (hasCharacters ? colors.accent : '#666'),

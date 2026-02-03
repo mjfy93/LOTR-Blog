@@ -228,7 +228,7 @@ export default function About() {
           <h2 className="h3 mb-4" style={{ color: colors.accent }}>Architecture Overview</h2>
           <div className="card bg-dark" style={{ borderColor: colors.accent }}>
             <div className="card-body">
-              <pre className="p-3 rounded mb-0 bg-secondary text-light" style={{ overflow: 'auto' }}>
+              <pre className="architecture-pre p-3 rounded mb-0 bg-secondary text-light" style={{ overflow: 'auto' }}>
                 {`┌─────────────────────────────────────────────────┐
 │              User Browser                       │
 │  ┌──────────────────────────────────────────┐  │
