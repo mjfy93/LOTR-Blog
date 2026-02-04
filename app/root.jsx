@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import LightRays from './components/LightRays/LightRays';
 import ClientOnly from './components/ClientOnly';
 import { useIsMobile } from './hooks/useIsMobile';
+import styles from './root.module.css';
 
 export function Layout({ children }) {
   return (
@@ -48,35 +49,13 @@ export default function Root() {
 
   return (
     <ThemeProvider>
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <div className={styles.rootLayout}>
         <Navbar />
-        <div style={{
-          flex: '1 1 auto',
-          width: '100%',
-          position: 'relative',
-          overflow: 'hidden',
-          isolation: 'isolate'
-        }}>
+        <div className={styles.contentWrapper}>
           {/* LightRays - only on desktop for battery/performance */}
           {mounted && !isMobile && (
-            <ClientOnly fallback={
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: 0
-              }} />
-            }>
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: 0
-              }}>
+            <ClientOnly fallback={<div className={styles.lightRaysLayer} />}>
+              <div className={styles.lightRaysLayer}>
                 <LightRays
                   raysOrigin="top-center"
                   raysColor="#ffe69c"
@@ -91,7 +70,7 @@ export default function Root() {
               </div>
             </ClientOnly>
           )}
-          <div style={{ position: 'relative', zIndex: 1, height: '100%', overflowY: 'auto' }}>
+          <div className={styles.scrollableContent}>
             <main className='container mt-4'>
               <Outlet />
             </main>

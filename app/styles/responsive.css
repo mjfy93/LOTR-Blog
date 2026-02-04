@@ -27,6 +27,7 @@
 .mobile-menu-card {
   height: 150px;
   background-size: cover;
+  background-color: #ffffff;
   background-position: center;
   position: relative;
   border: 1px solid #eedda0;
@@ -69,11 +70,11 @@
 /* --- Card Images --- */
 @media (max-width: 767.98px) {
   .book-card-img {
-    height: 250px !important;
+    height: 150px !important;
     object-fit: contain !important;
   }
   .movie-card-img {
-    height: 280px !important;
+    height: 180px !important;
     object-fit: cover !important;
   }
 }
