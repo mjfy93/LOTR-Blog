@@ -48,12 +48,13 @@ export default function Root() {
 
   return (
     <ThemeProvider>
-      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
         <Navbar />
         <div style={{
-          flex: '1 0 auto',
+          flex: '1 1 auto',
           width: '100%',
           position: 'relative',
+          overflow: 'hidden',
           isolation: 'isolate'
         }}>
           {/* LightRays - only on desktop for battery/performance */}
@@ -90,13 +91,13 @@ export default function Root() {
               </div>
             </ClientOnly>
           )}
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ position: 'relative', zIndex: 1, height: '100%', overflowY: 'auto' }}>
             <main className='container mt-4'>
               <Outlet />
             </main>
+            <Footer />
           </div>
         </div>
-        <Footer />
       </div>
     </ThemeProvider>
   );
